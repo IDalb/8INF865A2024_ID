@@ -1,2 +1,2 @@
-# 8INF865A2024_ID
-Exercices du cours de programmation pour plateformes mobiles de l'UQAC
+# Exercices programmation mobile - Isaac DALBERTO #
+Exercices du cours 8INF865 (Programmation pour plateformes mobiles) dispensé à l'UQAC lors de la session d'automne 2024
