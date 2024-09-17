@@ -38,6 +38,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -121,13 +122,27 @@ fun TipTimeLayout() {
             ),
             value = tipInput,
             onValueChange = { tipInput = it },
-            modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth()
+            modifier = Modifier.padding(bottom = 12.dp).fillMaxWidth()
         )
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 32.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            TipSetterButton(10, onClick = { tipInput = "10" })
+            TipSetterButton(15, onClick = { tipInput = "15" })
+            TipSetterButton(20, onClick = { tipInput = "20" })
+            TipSetterButton(25, onClick = { tipInput = "25" })
+        }
+
         RoundTheTipRow(
             roundUp = roundUp,
             onRoundUpChanged = { roundUp = it },
             modifier = Modifier.padding(bottom = 32.dp)
         )
+
         Text(
             text = stringResource(R.string.tip_amount, tip),
             style = MaterialTheme.typography.displaySmall
@@ -176,6 +191,16 @@ fun RoundTheTipRow(
                 .fillMaxWidth()
                 .wrapContentWidth(Alignment.End)
         )
+    }
+}
+
+@Composable
+fun TipSetterButton(
+    tip: Int,
+    onClick: ()->Unit
+) {
+    OutlinedButton(onClick = onClick) {
+        Text("$tip%")
     }
 }
 
